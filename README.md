@@ -10,7 +10,7 @@ Hammal 是运行于 cloudflare workers 上的 Docker 镜像加速工具，用于
 git clone https://github.com/tomwei7/hammal.git
 cd hammal
 npm install
-mv wrangler.toml.sample wrangler.toml
+cp wrangler.toml.sample wrangler.toml
 
 # 获取 account_id id
 npx wrangler whoami
