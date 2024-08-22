@@ -9,13 +9,14 @@ Hammal 是运行于 cloudflare workers 上的 Docker 镜像加速工具，用于
 ```
 git clone https://github.com/tomwei7/hammal.git
 cd hammal
+npm install
 mv wrangler.toml.sample wrangler.toml
 
 # 获取 account_id id
-wrangler whoami
+npx wrangler whoami
 
 # 创建 KV namespace
-wrangler kv:namespace create hammal_cache
+npx wrangler kv namespace create hammal_cache
 
 ```
 
@@ -23,12 +24,9 @@ wrangler kv:namespace create hammal_cache
 
 ```toml
 name = "hammal"
-type = "webpack"
 account_id = "your account_id"
+main = "src/index.ts"
 workers_dev = true
-route = ""
-zone_id = ""
-webpack_config = "webpack.config.js"
 kv_namespaces = [
 	 { binding = "HAMMAL_CACHE", id = "you kv id" }
 ]
