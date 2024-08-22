@@ -35,7 +35,7 @@ kv_namespaces = [
 发布 workers
 
 ```
-wrangler publish
+npx wrangler deploy
 ```
 
 发布 workers 可以获得类似 https://hammal.{your_name}.workers.dev  的地址，修改 registry-mirrors 地址为该地址即可
