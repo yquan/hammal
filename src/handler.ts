@@ -9,6 +9,7 @@ const ORG_NAME_BACKEND:{ [key: string]: string; } = {
   "k8sgcr": "https://k8s.gcr.io",
   "quay": "https://quay.io",
   "nodesource": "https://deb.nodesource.com",
+  "npmjs": "https://registry.npmjs.org",
 }
 
 const DEFAULT_BACKEND_ORG: string = "docker"

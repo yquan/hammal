@@ -2,7 +2,7 @@
 
 Hammal 是运行于 cloudflare workers 上的 Docker 镜像加速工具，用于解决获取 Docker 官方镜像速度缓慢以及完全无法获取 k8s.gcr.io 上镜像的问题。
 
-### 食用方式
+### 使用方式
 
 首先安装 wrangler 命令行工具 https://developers.cloudflare.com/workers/cli-wrangler/install-update
 
@@ -17,7 +17,6 @@ npx wrangler whoami
 
 # 创建 KV namespace
 npx wrangler kv namespace create hammal_cache
-
 ```
 
 修改 wrangler.toml 文件填充 account_id 与 kv_namespaces 中的 id
@@ -64,9 +63,3 @@ docker pull hammal.{your_name}.workers.dev/gcr/youlib/image:tags
 # 拉取 quay.io 镜像
 docker pull hammal.{your_name}.workers.dev/quay/coreos/flannel:v0.13.1-rc2
 ```
-
-### TODO
-
-- [ ] 私有仓库支持
-- [ ] manifests/blob cache
-
