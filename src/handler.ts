@@ -36,6 +36,14 @@ function orgNameFromPath(pathname: string): string|null {
   return DEFAULT_BACKEND_ORG
 }
 
+function orgNameFromHost(host: string): string|null {
+  const splitedHost: string[] = host.split(".", 2)
+  if (splitedHost.length === 2 && splitedHost[1] === "mirrors") {
+    return splitedHost[0].toLowerCase()
+  }
+  return DEFAULT_BACKEND_ORG
+}
+
 function hostByOrgName(orgName: string|null): string {
   if (orgName !== null && orgName in ORG_NAME_BACKEND) {
     return ORG_NAME_BACKEND[orgName]
@@ -58,7 +66,7 @@ function rewritePathByOrg(orgName: string|null, pathname: string): string {
 
 async function handleRegistryRequest(request: Request): Promise<Response> {
   const reqURL = new URL(request.url)
-  const orgName = orgNameFromPath(reqURL.pathname)
+  const orgName = orgNameFromHost(reqURL.host)
   const pathname = rewritePathByOrg(orgName, reqURL.pathname)
   const host = hostByOrgName(orgName)
   const tokenProvider = new TokenProvider()
