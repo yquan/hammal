@@ -6,6 +6,7 @@ const PROXY_HEADER_ALLOW_LIST: string[] = ["accept", "user-agent", "accept-encod
 const ORG_NAME_BACKEND:{ [key: string]: string; } = {
   "docker": "https://registry-1.docker.io",
   "gcr": "https://gcr.io",
+  "ghcr": "https://ghcr.io",
   "k8sgcr": "https://k8s.gcr.io",
   "quay": "https://quay.io",
   "nodesource": "https://deb.nodesource.com",
